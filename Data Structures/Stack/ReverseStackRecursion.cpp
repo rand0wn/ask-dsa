@@ -5,7 +5,7 @@
 
 void insertBottom(std::stack<int> s, int x){ // Insert element x to bottom of stack s
     int t;
-	if(!s.empty()){
+	if(s.empty()){
 		s.push(x);
 	}else{
 		t = s.top();
