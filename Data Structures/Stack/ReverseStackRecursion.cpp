@@ -12,7 +12,7 @@ void insertBottom(std::stack<int> s, int x){ // Insert element x to bottom of st
 		s.pop();
 		insertBottom(s, x);
 
-		s.push(x);
+		s.push(t);
 	}
 }
 
@@ -23,6 +23,7 @@ void reverse(std::stack<int> s){ // Reverse the stack
 
 		t = s.top();
 		s.pop();
+		reverse(s);
 
 		insertBottom(s, t);
 	}

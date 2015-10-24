@@ -12,6 +12,7 @@ void stockSpan(int price[], int n, int S[] ){
 
 	for(int i = 0; i < n; i++){
 
+        //At first call i = 0, give s = 1
 		//Check position of price with last prices and store order
 		while((!st.empty()) && price[st.top()] <= price[i]  )
 			st.pop();

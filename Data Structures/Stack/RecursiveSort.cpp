@@ -6,6 +6,7 @@
 void sortedInsert(std::stack<int>&s, int x){
 
 	if(s.empty() || x > s.top()){ //If either empty stack or element greator than top and others
+		//Assuming stack is already in decreasing order or empty at first
 		s.push(x);
 		return;
 	}
