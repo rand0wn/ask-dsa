@@ -29,7 +29,7 @@ public:
 			std::cout<<"Queue Created and Item inserted\n ";
 			return;
 		}
-		else if(front != rear) //Insert at front
+		else if(front != rear) //Insert at rear
 			q -> next = rear;
 		
 		rear = q;
