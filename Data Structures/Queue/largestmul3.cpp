@@ -6,8 +6,11 @@
 #include<functional>
 
 int osize;
+int *mul; //Return Array output global for int* largestmul3()
 
 int* largestmul3(int *A, int n){ //C++ does not have return type array but can use pointer*
+
+	//Cannot return a local variable because its address will be invalid
 
 	std::queue<int> q0, q1, q2;
 	
@@ -27,7 +30,11 @@ int* largestmul3(int *A, int n){ //C++ does not have return type array but can u
 			q2.push(A[i]);
 	}
 	
-	std::cout<<sum<<"\n"; //This line fixed the variable sum, Why?
+//	std::cout<<sum<<"\n"; //This line fixed the variable sum, Why?
+	
+	//Because local variable(mul) cannot be returned as a pointer due to its non existance
+	//but giving console output produced a global copy of function in compiler stack there by
+	//giving local variable a address and give desired results
 	
 	//Smallest reminder removed first will form largest number
 
@@ -70,7 +77,7 @@ int* largestmul3(int *A, int n){ //C++ does not have return type array but can u
 		}
 	}
 		osize = q0.size() + q1.size() + q2.size();
-		int mul[osize]; //Size of merging arrray
+	    mul = new int[osize]; //Size of merging arrray
 		int index = 0;
 		
 		
@@ -95,17 +102,15 @@ int* largestmul3(int *A, int n){ //C++ does not have return type array but can u
 			return mul;
 }
 
-//Emplace and push: emplace calls contructor and creates a new section in the object while push transfers the temporary copy to the existing object
+//Emplace and push: emplace calls contructor and creates a new section(like node) in the object while push transfers the temporary copy to the existing object
 
 	int main(){
 		int arr[] = {8, 1, 7, 6, 0};
 
-		int *mul = largestmul3(arr, 5);
+		int *mulk = largestmul3(arr, 5);
 			
 		for(int i = 0; i < osize ; i++)
-			std::cout<<mul[i]<<" ";
-
-		std::cout<<"\n"<<osize<<" \n";
+			std::cout<<mulk[i]<<" ";
 
 		return 0;
 	}	
