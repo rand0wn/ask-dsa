@@ -58,7 +58,7 @@ public:
 			while(k -> data != s)
 				k = k -> next;
 			
-			l -> next = (k -> next) -> next;
+			l -> next = (k -> next);
 
 			std::cout<<"Element inserted at position\n";
 		}
