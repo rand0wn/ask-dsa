@@ -51,7 +51,7 @@ int infix2postfix(std::string infix){
 			if(!tempStack.empty() && tempStack.top() != '(')
 				return -1;
 			else
-				tempStack.pop();
+				tempStack.pop(); //Pop open bracket
 		}
 		else{ //Operators arrangement in stack
 			while(!tempStack.empty() && Prec(infix[i]) <= Prec(tempStack.top())){//Quite Similar to Stock Span Problem arrangement of element wrT other elements
